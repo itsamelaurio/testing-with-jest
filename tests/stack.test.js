@@ -17,3 +17,18 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+test('pop on empty stack returns undefined', () => {
+    stack.clear();
+    expect(stack.size()).toBe(0);
+    expect(stack.pop()).toBeDefined(); //Fel
+});
+
+test('pop on stack with two or more elements returns the top element and removes it', () => {
+    stack.push("ah");
+    stack.push("push it");
+    stack.push("push it real good");
+    let size = stack.size();
+    expect(stack.pop()).toBe("push it real gooood"); //Fel
+    expect(stack.size()).toBe(size-1);
+});

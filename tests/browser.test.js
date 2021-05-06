@@ -23,6 +23,7 @@ test('The stack should be empty in the beginning', async () => {
 	expect(stack).toEqual("n/a");
 });
 
+
 describe('Clicking "Pusha till stacken"', () => {
 	it('should open a prompt box', async () => {
 		let push = await driver.findElement(By.id('push'));
@@ -31,4 +32,12 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.sendKeys("Bananer");
 		await alert.accept();
 	});
+});
+
+test('Pop on empty stack should open alert box', async () => {
+  let pop = await driver.findElement(By.id('pop'));
+  await pop.click();
+  let alert = await driver.switchTo().alert();
+  expect(alert.getText()).toBe("Tog bort undefined"); // Fel
+  await driver.switchTo().alert().accept();
 });
