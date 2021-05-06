@@ -21,7 +21,7 @@ test('peek on stack with two or more elements returns the top element', () => {
 test('pop on empty stack returns undefined', () => {
     stack.clear();
     expect(stack.size()).toBe(0);
-    expect(stack.pop()).toBeDefined(); //Fel
+    expect(stack.pop()).toBeUndefined();
 });
 
 test('pop on stack with two or more elements returns the top element and removes it', () => {
@@ -29,6 +29,6 @@ test('pop on stack with two or more elements returns the top element and removes
     stack.push("push it");
     stack.push("push it real good");
     let size = stack.size();
-    expect(stack.pop()).toBe("push it real gooood"); //Fel
+    expect(stack.pop()).toBe("push it real good");
     expect(stack.size()).toBe(size-1);
 });
